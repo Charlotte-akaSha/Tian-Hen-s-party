@@ -466,8 +466,68 @@ td {
   line-height: 1.45;
 }
 
+.scheduleRow--surprise td {
+  padding: 16px 12px 20px;
+  vertical-align: middle;
+}
+
+.scheduleSurpriseCell {
+  background: transparent;
+}
+
+.scheduleSurpriseBanner {
+  margin: 4px 0 8px;
+  padding: 22px 20px;
+  border-radius: var(--radius2);
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--accent1) 22%, var(--panel)),
+    color-mix(in oklab, var(--accent2) 18%, var(--panel)),
+    color-mix(in oklab, var(--accent3) 14%, var(--panel))
+  );
+  border: 2px solid color-mix(in oklab, var(--accent1) 45%, var(--line));
+  box-shadow: var(--shadow);
+}
+
+.scheduleSurpriseBanner__time {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.scheduleSurpriseBanner__title {
+  font-family: Fraunces, ui-serif, Georgia, serif;
+  font-size: clamp(1.65rem, 4.2vw, 2.65rem);
+  font-weight: 650;
+  font-variation-settings: "opsz" 72;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  background: linear-gradient(
+    120deg,
+    var(--accent1),
+    var(--accent2),
+    var(--accent3)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cellActivity {
+  white-space: pre-line;
+}
+
 .cellPlace {
   font-weight: 700;
+}
+
+.cellPlace__name {
+  white-space: pre-line;
 }
 
 .cellPlace small {
@@ -665,5 +725,19 @@ td.cellNotes {
     position: static;
     background: #fff;
     color: #222;
+  }
+  .scheduleSurpriseBanner {
+    background: #f3f0ff;
+    border-color: #c4b5fd;
+    box-shadow: none;
+  }
+  .scheduleSurpriseBanner__title {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: #5b21b6;
+  }
+  .scheduleSurpriseBanner__time {
+    color: #4b5563;
   }
 }

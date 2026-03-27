@@ -13,6 +13,15 @@ function mapsLink(query) {
   return url.toString();
 }
 
+function placeMapsQuery(row) {
+  const parts = [];
+  const name = safeText(row.placeName).trim();
+  if (name) parts.push(name.replace(/\n/g, " "));
+  const city = safeText(row.placeCity).trim();
+  if (city) parts.push(city.replace(/\n/g, " "));
+  return parts.join(", ");
+}
+
 function safeText(value) {
   return value == null ? "" : String(value);
 }
@@ -261,6 +270,7 @@ function renderPlanB(planB) {
     const tdTime = document.createElement("td");
     tdTime.textContent = row.time || "—";
     const tdAct = document.createElement("td");
+    tdAct.className = "cellActivity";
     tdAct.textContent = row.activity || "—";
     const tdPlace = document.createElement("td");
     tdPlace.className = "cellPlace";
@@ -320,6 +330,7 @@ function renderOtherActivities(oa) {
     const tr = document.createElement("tr");
 
     const tdAct = document.createElement("td");
+    tdAct.className = "cellActivity";
     tdAct.textContent = row.activity || "—";
 
     const tdPlace = document.createElement("td");
@@ -420,27 +431,60 @@ function renderDays(days) {
 
     const tbody = document.createElement("tbody");
     for (const row of day.rows || []) {
+      if (row.surpriseBanner) {
+        const tr = document.createElement("tr");
+        tr.className = "scheduleRow--surprise";
+        const td = document.createElement("td");
+        td.colSpan = 5;
+        td.className = "scheduleSurpriseCell";
+
+        const inner = document.createElement("div");
+        inner.className = "scheduleSurpriseBanner";
+        const timeHint = (row.bannerTime || "").trim();
+        if (timeHint) {
+          const tEl = document.createElement("div");
+          tEl.className = "scheduleSurpriseBanner__time";
+          tEl.textContent = timeHint;
+          inner.appendChild(tEl);
+        }
+        const titleEl = document.createElement("div");
+        titleEl.className = "scheduleSurpriseBanner__title";
+        titleEl.textContent = row.bannerText || "surprise surprise!";
+        inner.appendChild(titleEl);
+
+        td.appendChild(inner);
+        tr.appendChild(td);
+        tbody.appendChild(tr);
+        continue;
+      }
+
       const tr = document.createElement("tr");
 
       const tdTime = document.createElement("td");
       tdTime.textContent = row.time;
 
       const tdAct = document.createElement("td");
+      tdAct.className = "cellActivity";
       tdAct.textContent = row.activity;
 
       const tdPlace = document.createElement("td");
       tdPlace.className = "cellPlace";
       tdPlace.innerHTML = "";
       const placeTitle = document.createElement("div");
+      placeTitle.className = "cellPlace__name";
       placeTitle.textContent = row.placeName;
-      const placeCity = document.createElement("small");
-      placeCity.textContent = row.placeCity;
-      tdPlace.append(placeTitle, placeCity);
+      tdPlace.appendChild(placeTitle);
+      const cityText = safeText(row.placeCity).trim();
+      if (cityText) {
+        const placeCity = document.createElement("small");
+        placeCity.textContent = cityText;
+        tdPlace.appendChild(placeCity);
+      }
 
       const tdMap = document.createElement("td");
       tdMap.className = "map";
       const a = document.createElement("a");
-      a.href = row.mapUrl || mapsLink(`${row.placeName}, ${row.placeCity}`);
+      a.href = row.mapUrl || mapsLink(placeMapsQuery(row));
       a.target = "_blank";
       a.rel = "noopener noreferrer";
       a.textContent = "Open in Google Maps";
@@ -465,6 +509,7 @@ function renderDays(days) {
 function wireButtons(program) {
   el("printBtn").addEventListener("click", () => window.print());
 
+  const copyBtnLabel = program.copyLinkButtonLabel || "Copy share text";
   el("copyLinkBtn").addEventListener("click", async () => {
     const lines = [
       `${program.title} — ${program.dates} — ${program.location}`,
@@ -476,7 +521,7 @@ function wireButtons(program) {
     await navigator.clipboard.writeText(lines.join("\n"));
     el("copyLinkBtn").textContent = "Copied";
     window.setTimeout(() => {
-      el("copyLinkBtn").textContent = "Copy share text";
+      el("copyLinkBtn").textContent = copyBtnLabel;
     }, 1400);
   });
 }

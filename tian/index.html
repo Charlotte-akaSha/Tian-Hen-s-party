@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Project Pages: lock asset URLs to repo root so ./content/program-data.js always loads -->
+    <!-- Project Pages: lock asset URLs to repo root -->
     <script>
       (function () {
         if (!location.hostname.endsWith("github.io")) return;
@@ -31,11 +31,10 @@
     />
     <meta
       property="og:url"
-      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/"
+      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/tian/"
     />
     <meta property="og:site_name" content="Tian’s Hens" />
     <meta property="og:locale" content="en_US" />
-    <!-- Bump ?v= on og:image when link previews show stale text; scrapers often re-fetch with new image URL -->
     <meta
       property="og:image"
       content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png?v=9"
@@ -63,19 +62,19 @@
 
     <link
       rel="canonical"
-      href="https://charlotte-akasha.github.io/Tian-Hen-s-party/"
+      href="https://charlotte-akasha.github.io/Tian-Hen-s-party/tian/"
     />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Tian’s Hens — Paris → Beauvais → Madeira",
-        "url": "https://charlotte-akasha.github.io/Tian-Hen-s-party/",
+        "url": "https://charlotte-akasha.github.io/Tian-Hen-s-party/tian/",
         "description": "A semi-organized excuse to behave like a different species for one week"
       }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=13" />
+    <link rel="stylesheet" href="../styles.css?v=13" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -119,7 +118,7 @@
 
           <figure class="hero__meme">
             <img
-              src="assets/hens-hero-meme.png?v=9"
+              src="../assets/hens-hero-meme.png?v=9"
               width="960"
               height="540"
               alt="Playful collage: rainbow unicorn energy, laser eyes, pixel rainbow — hen party mood."
@@ -173,7 +172,7 @@
       </footer>
     </main>
 
-    <script src="content/program-data.js?v=16"></script>
-    <script src="app.js?v=13"></script>
+    <script src="program-data.js?v=10"></script>
+    <script src="../app.js?v=13"></script>
   </body>
 </html>
