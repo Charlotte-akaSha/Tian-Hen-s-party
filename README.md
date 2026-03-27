@@ -26,8 +26,8 @@ This folder includes a **GitHub Actions** workflow (`.github/workflows/pages.yml
    git push -u origin main
    ```
 
-3. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions** (not “Deploy from a branch”).
-4. Open the **Actions** tab; the “Deploy to GitHub Pages” workflow should run. When it finishes, **Settings → Pages** shows the site URL.
+3. **Required:** On GitHub go to **Settings → Pages**. Under **Build and deployment**, set **Source** to **GitHub Actions**. If this stays “None” or only “Deploy from a branch”, you will get **404 — There isn’t a GitHub Pages site here** even when workflows succeed.
+4. Open the **Actions** tab; wait until **Deploy static content to Pages** finishes with a green check. Then reload your site URL after 1–2 minutes.
 
 **Your link** will look like:
 
