@@ -117,7 +117,7 @@ window.PROGRAM =
           "notes": "Bar crawl during Jazz festival, https://www.visitbeauvais.fr/decouvrir/les-temps-forts/le-baz-blues-autour-du-zinc/, Tian has to Get the band or crowd to play a ridiculous song request"
         },
         {
-          "time": "22:00",
+          "time": "23:00",
           "activity": "Sleep",
           "placeName": "Hosted at Thibault",
           "placeCity": "Flow's friend",
