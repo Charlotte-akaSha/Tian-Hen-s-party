@@ -2,19 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Project Pages: lock asset URLs to repo root so ./content/program-data.js always loads -->
-    <script>
-      (function () {
-        if (!location.hostname.endsWith("github.io")) return;
-        var parts = location.pathname.split("/").filter(Boolean);
-        if (parts.length < 1) return;
-        var b = document.createElement("base");
-        b.href = location.origin + "/" + parts[0] + "/";
-        document.head.insertBefore(b, document.head.children[1] || null);
-      })();
-    </script>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
+    <!-- Open Graph first (no scripts before): WhatsApp/Facebook crawlers read early bytes. Bump og:image ?v= to bust their cache. -->
     <title>Tian’s Hens — Paris → Beauvais → Madeira</title>
     <meta
       name="description"
@@ -35,10 +23,13 @@
     />
     <meta property="og:site_name" content="Tian’s Hens" />
     <meta property="og:locale" content="en_US" />
-    <!-- Bump ?v= on og:image when link previews show stale text; scrapers often re-fetch with new image URL -->
     <meta
       property="og:image"
-      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png?v=10"
+      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png?v=11"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png?v=11"
     />
     <meta property="og:image:width" content="960" />
     <meta property="og:image:height" content="540" />
@@ -50,7 +41,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:image"
-      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png?v=10"
+      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png?v=11"
     />
     <meta
       name="twitter:title"
@@ -60,7 +51,6 @@
       name="twitter:description"
       content="A curated experience in collective bad ideas and good memories"
     />
-
     <link
       rel="canonical"
       href="https://charlotte-akasha.github.io/Tian-Hen-s-party/"
@@ -73,6 +63,20 @@
         "url": "https://charlotte-akasha.github.io/Tian-Hen-s-party/",
         "description": "A curated experience in collective bad ideas and good memories"
       }
+    </script>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <!-- Project Pages: lock asset URLs to repo root so ./content/program-data.js always loads -->
+    <script>
+      (function () {
+        if (!location.hostname.endsWith("github.io")) return;
+        var parts = location.pathname.split("/").filter(Boolean);
+        if (parts.length < 1) return;
+        var b = document.createElement("base");
+        b.href = location.origin + "/" + parts[0] + "/";
+        document.head.insertBefore(b, document.head.children[1] || null);
+      })();
     </script>
 
     <link rel="stylesheet" href="styles.css?v=15" />
@@ -119,7 +123,7 @@
 
           <figure class="hero__meme">
             <img
-              src="assets/hens-hero-meme.png?v=10"
+              src="assets/hens-hero-meme.png?v=11"
               width="960"
               height="540"
               alt="Playful collage: rainbow unicorn energy, laser eyes, pixel rainbow — hen party mood."
