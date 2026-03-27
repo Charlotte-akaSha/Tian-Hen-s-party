@@ -390,6 +390,10 @@ a {
   line-height: 1.5;
 }
 
+.tableHint {
+  margin: 0 0 12px;
+}
+
 .days {
   display: grid;
   gap: 16px;
@@ -455,8 +459,9 @@ th {
   background: color-mix(in oklab, var(--bg) 78%, transparent);
   backdrop-filter: blur(10px);
   font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-weight: 700;
   color: var(--muted);
 }
 
