@@ -43,7 +43,7 @@ window.PROGRAM =
         "activity": "Botanical garden (color + geometry + views)",
         "place": "Jardim Botânico da Madeira (Eng. Rui Vieira)Caminho do Meio, Bom Sucesso, 9064-512 Funchal",
         "mapUrl": "https://maps.app.goo.gl/9jGM6mkbKCSYX6a26",
-        "notes": "This is your ‘rainbow-but-sleek’ visual block: patterned terraces, botanical geometry, and strong daylight color."
+        "notes": ""
       },
       {
         "activity": "Other hike",
