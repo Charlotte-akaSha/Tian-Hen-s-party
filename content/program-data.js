@@ -253,12 +253,9 @@ window.PROGRAM =
           "notes": "Cables cars are temporarily closed unfortunately"
         },
         {
-          "time": "16:00",
-          "activity": "Madeira Toboggan Ride on Traditional Wicker Basket Sledges",
-          "placeName": "Caminho do Monte nº4\n9050-084 Monte\nFunchal",
-          "placeCity": "Madeira\nPortugal",
-          "mapUrl": "https://maps.app.goo.gl/23Lh77nyVYeM3m5S8",
-          "notes": "Take a Madeira Toboggan Ride on Traditional Wicker Basket Sledges. A thrilling and unforgettable ride of up to 30 Kms per hour is guaranteed.The ride starts below the staircase of the Monte Church, Closes at 17:h45"
+          "surpriseBanner": true,
+          "bannerTime": "16:00",
+          "bannerText": "surprise surprise!"
         },
         {
           "time": "18:30",
@@ -301,20 +298,9 @@ window.PROGRAM =
           "notes": "Magic day yeah!"
         },
         {
-          "time": "08:30",
-          "activity": "Drive to trailhead",
-          "placeName": "Parque Florestal das Queimadas (PR9 start)Santana",
-          "placeCity": "Madeira",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Florestal%20das%20Queimadas%20%28PR9%20start%29Santana%2C%20Madeira",
-          "notes": "This levada is a top-tier ‘Madeira signature’: lush laurel forest + tunnels + waterfall payoff. Bring head lamp."
-        },
-        {
-          "time": "09:30–15:00",
-          "activity": "Hike: Levada do Caldeirão Verde (PR9) + picnic",
-          "placeName": "Levada do Caldeirão VerdeSantana",
-          "placeCity": "Madeira",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Levada%20do%20Caldeir%C3%A3o%20VerdeSantana%2C%20Madeira",
-          "notes": "This is the trip’s nature highlight: emerald waterfall + deep forest. Tunnels + cliff-side path."
+          "surpriseBanner": true,
+          "bannerTime": "08:30–15:00",
+          "bannerText": "surprise surprise!"
         },
         {
           "time": "15:30",
@@ -405,12 +391,9 @@ window.PROGRAM =
           "notes": ""
         },
         {
-          "time": "15:30–18:30",
-          "activity": "Scavenger hunt",
-          "placeName": "4 Praça do Povo",
-          "placeCity": "Funchal",
-          "mapUrl": "https://maps.app.goo.gl/xEBXSoMD4AK8ETYj8",
-          "notes": "https://www.mycityhunt.com/cities/funchal-pt-10341/scavenger-hunt-funchal-114882"
+          "surpriseBanner": true,
+          "bannerTime": "15:30–18:30",
+          "bannerText": "surprise surprise!"
         },
         {
           "time": "19:00",
@@ -461,20 +444,9 @@ window.PROGRAM =
           "notes": ""
         },
         {
-          "time": "14:00",
-          "activity": "Check-in for boat",
-          "placeName": "Magic Dolphin Praca do Povo, Av. Do Mar, São Martinho, 9000-900 Funchal",
-          "placeCity": "Portugal",
-          "mapUrl": "https://maps.app.goo.gl/58KGMkNaULvCmerN8",
-          "notes": ""
-        },
-        {
-          "time": "14:30–17:30",
-          "activity": "Dolphin and whale tour on Catamaran",
-          "placeName": "Magic Dolphin Praca do Povo, Av. Do Mar, São Martinho, 9000-900 Funchal",
-          "placeCity": "Portugal",
-          "mapUrl": "https://maps.app.goo.gl/58KGMkNaULvCmerN8",
-          "notes": ""
+          "surpriseBanner": true,
+          "bannerTime": "14:00–17:30",
+          "bannerText": "surprise surprise!"
         },
         {
           "time": "19:30–20:45",
