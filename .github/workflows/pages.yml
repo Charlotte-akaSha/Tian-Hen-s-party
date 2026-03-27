@@ -1,7 +1,5 @@
-# Deploy static site to GitHub Pages (free public URL).
-# After push: Repo → Settings → Pages → Build: GitHub Actions.
-
-name: Deploy to GitHub Pages
+# https://github.com/actions/starter-workflows/blob/main/pages/static.yml
+name: Deploy static content to Pages
 
 on:
   push:
@@ -15,26 +13,26 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Upload
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
-      - name: Deploy
-        id: deploy
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
