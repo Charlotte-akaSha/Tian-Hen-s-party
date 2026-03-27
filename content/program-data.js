@@ -410,6 +410,11 @@ window.PROGRAM =
       "city": "Madeira (Ocean + booked)",
       "theme": "Madeira (Ocean + booked)",
       "notes": "",
+      "birthday": {
+        "who": "Flow",
+        "headline": "It's Flow's birthday!",
+        "subline": "Extra love, snacks, and silly toasts between the ocean and dinner."
+      },
       "rows": [
         {
           "time": "09:30–10:30",

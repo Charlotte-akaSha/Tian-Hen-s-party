@@ -388,6 +388,9 @@ function renderDays(days) {
   for (const day of days || []) {
     const wrap = document.createElement("article");
     wrap.className = "day";
+    if (day.birthday && safeText(day.birthday.who).trim()) {
+      wrap.classList.add("day--birthday");
+    }
 
     const head = document.createElement("div");
     head.className = "day__head";
@@ -501,7 +504,34 @@ function renderDays(days) {
     table.append(thead, tbody);
     tableWrap.append(table);
 
-    wrap.append(head, tableWrap);
+    wrap.appendChild(head);
+    if (day.birthday && safeText(day.birthday.who).trim()) {
+      const bd = document.createElement("div");
+      bd.className = "dayBirthday";
+      bd.setAttribute("role", "note");
+      const icon = document.createElement("span");
+      icon.className = "dayBirthday__icon";
+      icon.setAttribute("aria-hidden", "true");
+      icon.textContent = "🎂";
+      const text = document.createElement("div");
+      text.className = "dayBirthday__copy";
+      const who = safeText(day.birthday.who).trim();
+      const h = document.createElement("div");
+      h.className = "dayBirthday__headline";
+      h.textContent =
+        safeText(day.birthday.headline).trim() || `It's ${who}'s birthday!`;
+      text.appendChild(h);
+      const sub = safeText(day.birthday.subline).trim();
+      if (sub) {
+        const s = document.createElement("div");
+        s.className = "dayBirthday__sub";
+        s.textContent = sub;
+        text.appendChild(s);
+      }
+      bd.append(icon, text);
+      wrap.appendChild(bd);
+    }
+    wrap.appendChild(tableWrap);
     root.append(wrap);
   }
 }

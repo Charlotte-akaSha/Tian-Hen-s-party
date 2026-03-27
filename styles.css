@@ -431,6 +431,80 @@ a {
   line-height: 1.35;
 }
 
+.day--birthday {
+  border-color: color-mix(in oklab, #f59e0b 45%, var(--line));
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, #fbbf24 25%, transparent),
+    var(--shadow);
+}
+
+.day--birthday .day__head {
+  background: linear-gradient(
+    125deg,
+    color-mix(in oklab, #f59e0b 32%, transparent),
+    color-mix(in oklab, var(--accent1) 24%, transparent),
+    color-mix(in oklab, #ec4899 18%, transparent)
+  );
+}
+
+.dayBirthday {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px 14px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(
+    95deg,
+    color-mix(in oklab, #fef3c7 55%, var(--panel)),
+    color-mix(in oklab, #fce7f3 45%, var(--panel)),
+    color-mix(in oklab, var(--accent3) 12%, var(--panel))
+  );
+}
+
+.dayBirthday__icon {
+  font-size: 26px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 6px color-mix(in oklab, #f59e0b 40%, transparent));
+}
+
+.dayBirthday__copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.dayBirthday__headline {
+  font-family: Fraunces, ui-serif, Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 650;
+  font-variation-settings: "opsz" 72;
+  letter-spacing: 0.02em;
+  background: linear-gradient(
+    115deg,
+    #c2410c,
+    #db2777,
+    #7c3aed
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dayBirthday__sub {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+@media (prefers-color-scheme: light) {
+  .dayBirthday__headline {
+    background: linear-gradient(115deg, #9a3412, #be185d, #6d28d9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
 .tableWrap {
   overflow: auto;
 }
@@ -739,5 +813,20 @@ td.cellNotes {
   }
   .scheduleSurpriseBanner__time {
     color: #4b5563;
+  }
+  .day--birthday .day__head {
+    background: #fff7ed;
+  }
+  .dayBirthday {
+    background: #fffbeb;
+  }
+  .dayBirthday__headline {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: #9a3412;
+  }
+  .dayBirthday__sub {
+    color: #444;
   }
 }
