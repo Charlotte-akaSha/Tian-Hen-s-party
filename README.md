@@ -10,6 +10,27 @@ Open `hens-party-site/index.html` in your browser (double-click).
 
 Everything is in `hens-party-site/content/program-data.js`.
 
+### Excel (edit in Excel / Google Sheets)
+
+1. Install tools: `python3 -m pip install -r tools/requirements.txt`
+2. **Export** the current program to a spreadsheet:
+
+   ```bash
+   python3 tools/export_program_to_xlsx.py
+   ```
+
+   This creates **`Tian-Hens-program-FOR-EDITING.xlsx`** in this folder (open it, edit, save).
+
+3. **Re-import** into the site after editing:
+
+   ```bash
+   python3 tools/import_xls.py "Tian-Hens-program-FOR-EDITING.xlsx"
+   ```
+
+   Then commit and push `content/program-data.js` (or copy the updated file to GitHub).
+
+Legacy **`.xls`** files still work with `import_xls.py`; new exports use **`.xlsx`**.
+
 ## Publishing (share a public link)
 
 This folder includes a **GitHub Actions** workflow (`.github/workflows/pages.yml`) that publishes the site to **GitHub Pages** on every push to `main`.

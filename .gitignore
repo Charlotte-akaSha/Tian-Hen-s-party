@@ -2,3 +2,6 @@
 *.log
 .env
 .env.*
+
+# Regenerated from program-data.js — run tools/export_program_to_xlsx.py to recreate
+Tian-Hens-program-FOR-EDITING.xlsx

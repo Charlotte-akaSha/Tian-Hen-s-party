@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Import Tian's Hens party planning.xls -> ../content/program-data.js"""
+"""Import Tian's Hens party planning .xls or .xlsx -> ../content/program-data.js
+
+Requires: pip install xlrd openpyxl
+"""
 
 import json
 import re
@@ -89,6 +92,67 @@ def format_cell_value(book, sh, ri: int, ci: int) -> str:
     if v is None:
         return ""
     return str(v).strip()
+
+
+def _cell_to_str_xlsx(v) -> str:
+    """openpyxl cell value → string (times as HH:MM)."""
+    if v is None:
+        return ""
+    if isinstance(v, bool):
+        return str(v)
+    from datetime import datetime, time
+
+    if isinstance(v, datetime):
+        return f"{v.hour:02d}:{v.minute:02d}"
+    if isinstance(v, time):
+        return f"{v.hour:02d}:{v.minute:02d}"
+    if isinstance(v, (int, float)):
+        fv = float(v)
+        if 0 < fv < 1:
+            secs = int(round(fv * 86400))
+            h, m = secs // 3600, (secs % 3600) // 60
+            return f"{h:02d}:{m:02d}"
+        if fv == int(fv):
+            return str(int(fv))
+        return str(v).strip()
+    return str(v).strip()
+
+
+def load_sheet_rows(path: Path) -> list:
+    """All rows as 7 columns of strings; col 0 time-normalized when applicable."""
+    path = Path(path)
+    if path.suffix.lower() == ".xlsx":
+        from openpyxl import load_workbook
+
+        wb = load_workbook(path, read_only=True, data_only=True)
+        ws = wb.active
+        rows_out = []
+        for row in ws.iter_rows(values_only=True):
+            vals = list(row) if row else []
+            vals = vals[:7]
+            while len(vals) < 7:
+                vals.append(None)
+            row_strs = [_cell_to_str_xlsx(c) for c in vals]
+            if should_normalize_time_cell(row_strs[0]):
+                row_strs[0] = normalize_time_string(row_strs[0])
+            rows_out.append(row_strs)
+        wb.close()
+        return rows_out
+
+    book = xlrd.open_workbook(str(path))
+    sh = book.sheet_by_index(0)
+    rows_out = []
+    for ri in range(sh.nrows):
+        out = []
+        for ci in range(min(7, sh.ncols)):
+            v = format_cell_value(book, sh, ri, ci)
+            if ci == 0 and should_normalize_time_cell(v):
+                v = normalize_time_string(v)
+            out.append(v)
+        while len(out) < 7:
+            out.append("")
+        rows_out.append(out)
+    return rows_out
 
 
 def _pad_hhmm(h: int, m: int) -> str:
@@ -185,17 +249,7 @@ def sanity_fix_row_time(row: dict, date_label: str) -> None:
 
 
 def import_xls(path: Path) -> dict:
-    book = xlrd.open_workbook(str(path))
-    sh = book.sheet_by_index(0)
-
-    def row_vals(ri: int):
-        out = []
-        for ci in range(min(7, sh.ncols)):
-            v = format_cell_value(book, sh, ri, ci)
-            if ci == 0 and should_normalize_time_cell(v):
-                v = normalize_time_string(v)
-            out.append(v)
-        return out
+    all_rows = load_sheet_rows(path)
 
     sections = []
     current = None
@@ -206,8 +260,7 @@ def import_xls(path: Path) -> dict:
     in_plan_b = False
     in_other = False
 
-    for ri in range(sh.nrows):
-        vals = row_vals(ri)
+    for vals in all_rows:
         while len(vals) < 7:
             vals.append("")
         t0, act, place, gmap, notes = vals[0], vals[1], vals[2], vals[3], vals[4]
