@@ -210,7 +210,7 @@ window.PROGRAM =
           "placeName": "Start at the old city pub",
           "placeCity": "",
           "mapUrl": "https://maps.app.goo.gl/fif9JAY1ZhAH6S8o6",
-          "notes": "Bar crawl rule: at each new bar.\n\nThe Runaway Heiress\nPrincess Tian Tian, from  a small kingdom along the Mekong that was never fully mapped and no longer exist. Promised in marriage, disappeared 3 weeks before. Now “finding herself.”\nThe Lottery Winner\nJust won millions yesterday. No plan, overwhelmed. Asks strangers what she should do with her millions\nThe Undercover Journalist\n“I’m writing about nightlife psychology.”\nAsks slightly invasive but fascinating questions: What version of yourself comes out at night that doesn’t exist during the day? When was the last time you did something here you regretted?"
+          "notes": "Bar crawl rule: at each new bar, Tian becomes a new identity\n\nThe Runaway Heiress\nPrincess Tian Tian, from  a small kingdom along the Mekong that was never fully mapped and no longer exist. Promised in marriage, disappeared 3 weeks before. Now “finding herself.”\nThe Lottery Winner\nJust won millions yesterday. No plan, overwhelmed. Asks strangers what she should do with her millions\nThe Undercover Journalist\n“I’m writing about nightlife psychology.”\nAsks slightly invasive questions: What’s your most chaotic ‘I should not be trusted after midnight’ story? When was the last time you did something here you regretted?"
         }
       ]
     },

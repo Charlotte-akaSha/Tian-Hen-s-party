@@ -245,7 +245,7 @@ function renderPlanB(planB) {
   for (const label of [
     "Time",
     "Activity",
-    "Exact place",
+    "Place",
     "Google Maps link",
     "Notes",
   ]) {
@@ -305,7 +305,7 @@ function renderOtherActivities(oa) {
   const trh = document.createElement("tr");
   for (const label of [
     "Activity",
-    "Exact place (name + city)",
+    "Place",
     "Google Maps link",
     "Notes",
   ]) {
@@ -408,7 +408,7 @@ function renderDays(days) {
     for (const label of [
       "Time",
       "Activity",
-      "Exact place (name + city)",
+      "Place",
       "Google Maps link",
       "Notes",
     ]) {
