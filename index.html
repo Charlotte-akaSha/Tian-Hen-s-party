@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Open Graph first (no scripts before): WhatsApp/Facebook crawlers read early bytes. Bump og:image ?v= to bust their cache. -->
+    <!-- Open Graph first. Use a clean og:image URL (no ?query): crawlers often fail to fetch images with query strings. -->
     <title>Tian’s Hens — Paris → Beauvais → Madeira</title>
     <meta
       name="description"
@@ -25,11 +25,11 @@
     <meta property="og:locale" content="en_US" />
     <meta
       property="og:image"
-      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png?v=13"
+      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png"
     />
     <meta
       property="og:image:secure_url"
-      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png?v=13"
+      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png"
     />
     <meta property="og:image:width" content="960" />
     <meta property="og:image:height" content="540" />
@@ -41,7 +41,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:image"
-      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png?v=13"
+      content="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png"
+    />
+    <link
+      rel="image_src"
+      href="https://charlotte-akasha.github.io/Tian-Hen-s-party/assets/hens-hero-meme.png"
     />
     <meta
       name="twitter:title"
@@ -123,7 +127,7 @@
 
           <figure class="hero__meme">
             <img
-              src="assets/hens-hero-meme.png?v=13"
+              src="assets/hens-hero-meme.png?v=14"
               width="960"
               height="540"
               alt="Playful collage: rainbow unicorn energy, laser eyes, pixel rainbow — hen party mood."
