@@ -390,10 +390,6 @@ a {
   line-height: 1.5;
 }
 
-.tableHint {
-  margin: 0 0 12px;
-}
-
 .days {
   display: grid;
   gap: 16px;
