@@ -43,22 +43,14 @@ body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
     sans-serif;
   background:
-    radial-gradient(
-      1000px 520px at 15% 0%,
-      color-mix(in oklab, var(--accent2) 30%, transparent),
-      transparent 60%
-    ),
-    radial-gradient(
-      900px 520px at 85% 10%,
-      color-mix(in oklab, var(--accent1) 28%, transparent),
-      transparent 62%
-    ),
-    radial-gradient(
-      700px 450px at 45% 95%,
-      color-mix(in oklab, var(--accent3) 18%, transparent),
-      transparent 65%
-    ),
-    var(--bg);
+    linear-gradient(
+      160deg,
+      color-mix(in oklab, var(--accent2) 18%, var(--bg)) 0%,
+      var(--bg) 30%,
+      color-mix(in oklab, var(--accent1) 12%, var(--bg)) 55%,
+      var(--bg) 75%,
+      color-mix(in oklab, var(--accent3) 10%, var(--bg)) 100%
+    );
 }
 
 a {
@@ -594,10 +586,12 @@ td {
 
 .cellActivity {
   white-space: pre-line;
+  font-weight: 700;
+  font-size: 15px;
 }
 
 .cellPlace {
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .cellPlace__name {
