@@ -194,7 +194,7 @@ window.PROGRAM =
           "placeName": "Reis Magos Beach",
           "placeCity": "Near our Airbnb (Caniço)",
           "mapUrl": "https://maps.app.goo.gl/MoFqz8Hq6YWEhZCs6",
-          "notes": "Sunset on the sand — bring beer, wine, or champagne if you like."
+          "notes": "Sunset on the sand — bring beer, wine, or champagne if you like.\n\nGive a dramatic 30-second speech about why she’d be a terrible wife."
         },
         {
           "time": "19:00",
