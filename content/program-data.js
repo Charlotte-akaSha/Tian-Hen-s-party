@@ -190,11 +190,11 @@ window.PROGRAM =
         },
         {
           "time": "17:30–18:30",
-          "activity": "Toast on the beach — first toast (give a dramatic 30-second speech: why she’d be a terrible wife)",
+          "activity": "Toast on the beach — first toast",
           "placeName": "Reis Magos Beach",
           "placeCity": "Near our Airbnb (Caniço)",
           "mapUrl": "https://maps.app.goo.gl/MoFqz8Hq6YWEhZCs6",
-          "notes": "Sunset on the sand — bring beer, wine, or champagne if you like.\n\nGive a dramatic 30-second speech about why she’d be a terrible wife."
+          "notes": "Sunset on the sand — bring beer, wine, or champagne if you like.\n\nGive a dramatic 30-second speech about why she’s a terrible wife."
         },
         {
           "time": "19:00",
