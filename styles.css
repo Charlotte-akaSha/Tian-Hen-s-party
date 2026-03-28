@@ -791,7 +791,40 @@ td.cellNotes {
   }
 
   table {
-    min-width: 720px;
+    display: block;
+    min-width: 0;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  tbody tr {
+    display: block;
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: var(--panel);
+  }
+
+  .scheduleRow--surprise {
+    border: none;
+    background: transparent;
+    padding: 4px 0;
+  }
+
+  .scheduleRow--surprise td {
+    padding: 0;
+  }
+
+  .scheduleSurpriseCell::before {
+    display: none;
   }
 
   .top {
@@ -835,16 +868,8 @@ td.cellNotes {
     border-radius: 16px;
   }
 
-  /* No negative margins: parent .day uses overflow:hidden and would clip them. */
   .tableWrap {
-    touch-action: pan-x pan-y pinch-zoom;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    border-radius: 0;
-    max-width: 100%;
-    scroll-padding-inline: 8px;
+    overflow: visible;
   }
 
   .contact {
@@ -856,16 +881,43 @@ td.cellNotes {
     align-self: stretch;
   }
 
-  th,
   td {
-    padding: 10px;
+    display: block;
+    padding: 6px 0;
+    border-bottom: none;
     font-size: 14px;
     overflow-wrap: break-word;
   }
 
+  td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+
+  td:not([data-label])::before {
+    display: none;
+  }
+
+  td:first-child {
+    padding-top: 0;
+  }
+
+  td:last-child {
+    padding-bottom: 0;
+  }
+
   td.cellNotes {
     max-width: none;
-    min-width: 220px;
+    min-width: 0;
+    padding-top: 10px;
+    margin-top: 4px;
+    border-top: 1px solid var(--line);
   }
 
   .map a {

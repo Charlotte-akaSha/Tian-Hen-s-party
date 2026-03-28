@@ -268,15 +268,19 @@ function renderPlanB(planB) {
   for (const row of planB.rows) {
     const tr = document.createElement("tr");
     const tdTime = document.createElement("td");
+    tdTime.dataset.label = "Time";
     tdTime.textContent = row.time || "—";
     const tdAct = document.createElement("td");
     tdAct.className = "cellActivity";
+    tdAct.dataset.label = "Activity";
     tdAct.textContent = row.activity || "—";
     const tdPlace = document.createElement("td");
     tdPlace.className = "cellPlace";
+    tdPlace.dataset.label = "Place";
     tdPlace.textContent = row.place || "—";
     const tdMap = document.createElement("td");
     tdMap.className = "map";
+    tdMap.dataset.label = "Map";
     if (row.mapUrl) {
       const a = document.createElement("a");
       a.href = row.mapUrl;
@@ -289,6 +293,7 @@ function renderPlanB(planB) {
     }
     const tdNotes = document.createElement("td");
     tdNotes.className = "cellNotes";
+    tdNotes.dataset.label = "Notes";
     renderNotesInto(tdNotes, row.notes || "");
     tr.append(tdTime, tdAct, tdPlace, tdMap, tdNotes);
     tbody.append(tr);
@@ -331,14 +336,17 @@ function renderOtherActivities(oa) {
 
     const tdAct = document.createElement("td");
     tdAct.className = "cellActivity";
+    tdAct.dataset.label = "Activity";
     tdAct.textContent = row.activity || "—";
 
     const tdPlace = document.createElement("td");
     tdPlace.className = "cellPlace";
+    tdPlace.dataset.label = "Place";
     tdPlace.textContent = row.place || "—";
 
     const tdMap = document.createElement("td");
     tdMap.className = "map";
+    tdMap.dataset.label = "Map";
     if (row.mapUrl) {
       const a = document.createElement("a");
       a.href = row.mapUrl;
@@ -352,6 +360,7 @@ function renderOtherActivities(oa) {
 
     const tdNotes = document.createElement("td");
     tdNotes.className = "cellNotes";
+    tdNotes.dataset.label = "Notes";
     renderNotesInto(tdNotes, row.notes || "");
 
     tr.append(tdAct, tdPlace, tdMap, tdNotes);
@@ -464,14 +473,17 @@ function renderDays(days) {
       const tr = document.createElement("tr");
 
       const tdTime = document.createElement("td");
+      tdTime.dataset.label = "Time";
       tdTime.textContent = row.time;
 
       const tdAct = document.createElement("td");
       tdAct.className = "cellActivity";
+      tdAct.dataset.label = "Activity";
       tdAct.textContent = row.activity;
 
       const tdPlace = document.createElement("td");
       tdPlace.className = "cellPlace";
+      tdPlace.dataset.label = "Place";
       tdPlace.innerHTML = "";
       const placeTitle = document.createElement("div");
       placeTitle.className = "cellPlace__name";
@@ -486,6 +498,7 @@ function renderDays(days) {
 
       const tdMap = document.createElement("td");
       tdMap.className = "map";
+      tdMap.dataset.label = "Map";
       const a = document.createElement("a");
       a.href = row.mapUrl || mapsLink(placeMapsQuery(row));
       a.target = "_blank";
@@ -495,6 +508,7 @@ function renderDays(days) {
 
       const tdNotes = document.createElement("td");
       tdNotes.className = "cellNotes";
+      tdNotes.dataset.label = "Notes";
       renderNotesInto(tdNotes, row.notes || "");
 
       tr.append(tdTime, tdAct, tdPlace, tdMap, tdNotes);
