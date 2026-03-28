@@ -406,9 +406,9 @@ window.PROGRAM =
       ]
     },
     {
-      "dateLabel": "Thursday Apr 2 — Madeira (Ocean + booked)",
-      "city": "Madeira (Ocean + booked)",
-      "theme": "Madeira (Ocean + booked)",
+      "dateLabel": "Thursday Apr 2 — Madeira",
+      "city": "Madeira",
+      "theme": "Madeira",
       "notes": "",
       "birthday": {
         "who": "Flow",
