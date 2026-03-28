@@ -190,7 +190,7 @@ window.PROGRAM =
         },
         {
           "time": "17:30–18:30",
-          "activity": "Toast on the beach — first toast",
+          "activity": "Toast on the beach — first toast (give a dramatic 30-second speech: why she’d be a terrible wife)",
           "placeName": "Reis Magos Beach",
           "placeCity": "Near our Airbnb (Caniço)",
           "mapUrl": "https://maps.app.goo.gl/MoFqz8Hq6YWEhZCs6",
