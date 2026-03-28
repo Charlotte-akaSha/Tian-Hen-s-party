@@ -649,11 +649,51 @@ function highlightToday(program) {
     title.appendChild(badge);
   }
 
+  const nowTarget = markHappeningNow(todayEl, days[todayIdx]) || todayEl;
+
   requestAnimationFrame(() => {
     setTimeout(() => {
-      todayEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      nowTarget.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 400);
   });
+}
+
+function parseStartMinutes(timeStr) {
+  const m = (timeStr || "").match(/(\d{1,2}):(\d{2})/);
+  if (!m) return -1;
+  return parseInt(m[1]) * 60 + parseInt(m[2]);
+}
+
+function markHappeningNow(dayEl, dayData) {
+  const rows = (dayData && dayData.rows) || [];
+  const now = new Date();
+  const nowMins = now.getHours() * 60 + now.getMinutes();
+
+  const trs = dayEl.querySelectorAll("tbody tr:not(.scheduleRow--surprise)");
+  let activeIdx = -1;
+
+  for (let i = 0; i < rows.length && i < trs.length; i++) {
+    if (rows[i].surpriseBanner) continue;
+    const start = parseStartMinutes(rows[i].time);
+    if (start < 0) continue;
+    if (start <= nowMins) activeIdx = i;
+  }
+  if (activeIdx < 0) return null;
+
+  const activeTr = trs[activeIdx];
+  if (!activeTr) return null;
+
+  activeTr.classList.add("scheduleRow--now");
+
+  const firstTd = activeTr.querySelector("td");
+  if (firstTd) {
+    const pill = document.createElement("span");
+    pill.className = "nowBadge";
+    pill.textContent = "Now";
+    firstTd.prepend(pill);
+  }
+
+  return activeTr;
 }
 
 main();
