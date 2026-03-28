@@ -601,6 +601,59 @@ function main() {
   renderOtherActivities(program.otherActivities || null);
   renderDays(program.days || []);
   wireButtons(program);
+  highlightToday(program);
+}
+
+function highlightToday(program) {
+  const months = {
+    jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+    jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11,
+  };
+  const startMatch = (program.dates || "").match(
+    /\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2})\b/i
+  );
+  if (!startMatch) return;
+
+  const now = new Date();
+  const year = now.getFullYear();
+  const today = new Date(year, now.getMonth(), now.getDate()).getTime();
+  const start = new Date(
+    year,
+    months[startMatch[1].toLowerCase()],
+    parseInt(startMatch[2])
+  );
+
+  const days = program.days || [];
+  let todayIdx = -1;
+  for (let i = 0; i < days.length; i++) {
+    const d = new Date(start);
+    d.setDate(d.getDate() + i);
+    if (d.getTime() === today) {
+      todayIdx = i;
+      break;
+    }
+  }
+  if (todayIdx < 0) return;
+
+  const dayEls = document.querySelectorAll("#days .day");
+  if (todayIdx >= dayEls.length) return;
+
+  const todayEl = dayEls[todayIdx];
+  todayEl.classList.add("day--today");
+
+  const title = todayEl.querySelector(".day__title");
+  if (title) {
+    const badge = document.createElement("span");
+    badge.className = "day__todayBadge";
+    badge.textContent = "Today";
+    title.appendChild(badge);
+  }
+
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      todayEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 400);
+  });
 }
 
 main();

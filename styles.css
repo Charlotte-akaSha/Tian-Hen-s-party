@@ -432,6 +432,29 @@ a {
   line-height: 1.35;
 }
 
+.day--today {
+  border-color: color-mix(in oklab, var(--accent2) 50%, var(--line));
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent2) 30%, transparent),
+    var(--shadow);
+  scroll-margin-top: 80px;
+}
+
+.day__todayBadge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  color: #fff;
+  vertical-align: middle;
+}
+
 .day--birthday {
   border-color: color-mix(in oklab, #f59e0b 45%, var(--line));
   box-shadow:
@@ -886,8 +909,9 @@ td.cellNotes {
 
   td {
     display: block;
-    padding: 6px 0;
+    padding: 8px 0;
     border-bottom: none;
+    border-top: 1px solid var(--line);
     font-size: 14px;
     overflow-wrap: break-word;
   }
@@ -909,18 +933,20 @@ td.cellNotes {
 
   td:first-child {
     padding-top: 0;
+    border-top: none;
   }
 
   td:last-child {
     padding-bottom: 0;
   }
 
+  td.cellNotes:empty {
+    display: none;
+  }
+
   td.cellNotes {
     max-width: none;
     min-width: 0;
-    padding-top: 10px;
-    margin-top: 4px;
-    border-top: 1px solid var(--line);
   }
 
   .map a {
